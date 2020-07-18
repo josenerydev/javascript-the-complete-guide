@@ -128,6 +128,12 @@ console.log(filteredArray);
 //   return prevValue + curValue;
 // }, 0);
 
-const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+// const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+
+// console.log(sum);
+
+const originalArray = [{ price: 10.99 }, { price: 5.99 }, { price: 29.99 }];
+const sum = originalArray.map(obj => obj.price)
+  .reduce((sumVal, curVal) => sumVal + curVal, 0);
 
 console.log(sum);
