@@ -89,32 +89,32 @@
 
 // console.log(taxAdjustedPrices);
 
-const prices = [10.99, 5.99, 3.99, 6.59];
-const tax = 0.19;
+// const prices = [10.99, 5.99, 3.99, 6.59];
+// const tax = 0.19;
 
-const taxAdjustedPrices = prices.map((price, index, prices) => {
-  const priceObj = { index: index, taxAdjPrice: price * (1 + tax) };
-  return priceObj;
-});
+// const taxAdjustedPrices = prices.map((price, index, prices) => {
+//   const priceObj = { index: index, taxAdjPrice: price * (1 + tax) };
+//   return priceObj;
+// });
 
 // console.log(prices, taxAdjustedPrices);
 
-const sortedPrice = prices.sort((a, b) => {
-  if (a > b) {
-    return -1;
-  } else if (a === b) {
-    return 0;
-  } else {
-    return 1;
-  }
-});
+// const sortedPrice = prices.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   } else if (a === b) {
+//     return 0;
+//   } else {
+//     return 1;
+//   }
+// });
 
 // console.log(sortedPrice.reverse());
-console.log(sortedPrice);
+// console.log(sortedPrice);
 
-const filteredArray = prices.filter(price => price > 6);
+// const filteredArray = prices.filter(price => price > 6);
 
-console.log(filteredArray);
+// console.log(filteredArray);
 
 // let sum = 0;
 
@@ -132,8 +132,18 @@ console.log(filteredArray);
 
 // console.log(sum);
 
-const originalArray = [{ price: 10.99 }, { price: 5.99 }, { price: 29.99 }];
-const sum = originalArray.map(obj => obj.price)
-  .reduce((sumVal, curVal) => sumVal + curVal, 0);
+// const originalArray = [{ price: 10.99 }, { price: 5.99 }, { price: 29.99 }];
+// const sum = originalArray.map(obj => obj.price)
+//   .reduce((sumVal, curVal) => sumVal + curVal, 0);
 
-console.log(sum);
+// console.log(sum);
+
+const data = 'new york;10.99;2000';
+
+const transformedData = data.split(';');
+transformedData[1] = +transformedData[1];
+console.log(transformedData);
+
+const nameFragments = ['Max', 'Schwarz'];
+const name = nameFragments.join(' ');
+console.log(name);
