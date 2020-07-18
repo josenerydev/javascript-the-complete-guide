@@ -111,3 +111,9 @@ const sortedPrice = prices.sort((a, b) => {
 
 // console.log(sortedPrice.reverse());
 console.log(sortedPrice);
+
+const filteredArray = prices.filter((price, index, prices) => {
+  return price > 6;
+});
+
+console.log(filteredArray);
