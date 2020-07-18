@@ -138,32 +138,39 @@
 
 // console.log(sum);
 
-const data = 'new york;10.99;2000';
+// const data = 'new york;10.99;2000';
 
-const transformedData = data.split(';');
-transformedData[1] = +transformedData[1];
-console.log(transformedData);
+// const transformedData = data.split(';');
+// transformedData[1] = +transformedData[1];
+// console.log(transformedData);
 
-const nameFragments = ['Max', 'Schwarz'];
-const name = nameFragments.join(' ');
-console.log(name);
+// const nameFragments = ['Max', 'Schwarz'];
+// const name = nameFragments.join(' ');
+// console.log(name);
 
-const copiedNameFragments = [...nameFragments];
-nameFragments.push('Mr');
-console.log(nameFragments, copiedNameFragments);
+// const copiedNameFragments = [...nameFragments];
+// nameFragments.push('Mr');
+// console.log(nameFragments, copiedNameFragments);
 
-const prices = [10.99, 5.99, 3.99, 6.59];
+// const prices = [10.99, 5.99, 3.99, 6.59];
 
-console.log(Math.min(...prices));
+// console.log(Math.min(...prices));
 
-const persons = [{ name: 'Max', age: 30 }, { name: 'Manuel', age: 31 }];
+// const persons = [{ name: 'Max', age: 30 }, { name: 'Manuel', age: 31 }];
 // const copiedPersons = [...persons.map(person => ({ name: person.name, age: person.age }))];
-const copiedPersons = persons.map(person => ({
-  name: person.name,
-  age: person.age
-}));
+// const copiedPersons = persons.map(person => ({
+//   name: person.name,
+//   age: person.age
+// }));
 
-persons.push({ name: 'Anna', age: 29 });
-persons[0].age = 31;
+// persons.push({ name: 'Anna', age: 29 });
+// persons[0].age = 31;
 
-console.log(persons, copiedPersons);
+// console.log(persons, copiedPersons);
+
+const nameData = ['Max', 'Schwarz', 'Mr', 30];
+// const firstName = nameData[0];
+// const lastName = nameData[1];
+
+const [firstName, lastName, ...otherInformation] = nameData;
+console.log(firstName, lastName, otherInformation);
