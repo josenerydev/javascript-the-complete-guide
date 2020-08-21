@@ -11,6 +11,7 @@ let person = {
   greet: function () {
     alert("Hi there!");
   },
+  1.5: "hello",
 };
 
 delete person.age;
@@ -20,4 +21,5 @@ delete person.age;
 // person.age = null;
 person.isAdmin = true;
 
-console.log(person["first name"]);
+console.log(person[1.5]);
+console.log(person)
