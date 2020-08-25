@@ -20,9 +20,11 @@ class ElementAttribute {
 }
 
 class Component {
-  constructor(renderHookId) {
+  constructor(renderHookId, shuldRender = true) {
     this.hookId = renderHookId;
-    this.render();
+    if (shuldRender) {
+      this.render();
+    }
   }
 
   render() {}
@@ -82,8 +84,9 @@ class ShoppingCart extends Component {
 
 class ProductItem extends Component {
   constructor(product, renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
@@ -109,31 +112,42 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [
-    new Product(
-      "A Pillow",
-      "https://www.pillowdecor.com/v/vspfiles/photos/JW1-0001-18-19-2.jpg",
-      "A soft pillow!",
-      19.99
-    ),
-    new Product(
-      "A Carpet",
-      "https://www.fatboy.com/assets/image/000/000/124/fatboy-non-flying-carpets-paprika.png",
-      "A carpet which you might like - or not.",
-      89.99
-    ),
-  ];
-
+  products = [];
   constructor(renderHookId) {
     super(renderHookId);
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.products = [
+      new Product(
+        "A Pillow",
+        "https://www.pillowdecor.com/v/vspfiles/photos/JW1-0001-18-19-2.jpg",
+        "A soft pillow!",
+        19.99
+      ),
+      new Product(
+        "A Carpet",
+        "https://www.fatboy.com/assets/image/000/000/124/fatboy-non-flying-carpets-paprika.png",
+        "A carpet which you might like - or not.",
+        89.99
+      ),
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    for (const prod of this.products) {
+      new ProductItem(prod, "prod-list");
+    }
   }
 
   render() {
     this.createRootElement("ul", "product-list", [
       new ElementAttribute("id", "prod-list"),
     ]);
-    for (const prod of this.products) {
-      new ProductItem(prod, "prod-list");
+    if (this.products && this.products.length > 0) {
+      this.renderProducts();
     }
   }
 }
